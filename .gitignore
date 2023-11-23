@@ -1,0 +1,4 @@
+**/node_modules/
+**/package-lock/
+cliente/package-lock.json
+email/package-lock.json

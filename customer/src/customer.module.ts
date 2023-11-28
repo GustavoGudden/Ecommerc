@@ -3,7 +3,7 @@ import { Express } from 'express';
 // Client
 import { prismaClient } from './infra/client/prismaClient';
 
-import { CustomerRouter } from './router/client.router';
+import { CustomerRouter } from './router/customer.router';
 import { CustomerService } from './customer.service';
 import { CustomerController } from './customer.controller';
 import { CustomerRepository } from './repositories/customer.respository';

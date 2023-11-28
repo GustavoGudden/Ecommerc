@@ -9,6 +9,6 @@ export class CustomerRouter {
   async execute() {
     this.customerRouter.post('/', this.customerController.handleCreateCustomer);
 
-    this.expressApp.use('/client', this.customerRouter);
+    this.expressApp.use('/customers', this.customerRouter);
   }
 }

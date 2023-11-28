@@ -1,6 +1,8 @@
+import { CustomerModel } from '../model/customer.model';
+
 export class EmailService {
-  async sendEmail(email: string, id: string) {
+  async sendEmail(customer: CustomerModel) {
     //logicas para enviar o email
-    return { message: `Email enviado para o id ${id} com suscesso.` };
+    console.log({ message: `Email enviado para o id ${customer.id} com suscesso.` });
   }
 }

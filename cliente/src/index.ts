@@ -1,8 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+import 'express-async-errors';
 import { prismaClient } from './infra/client/prismaClient';
 import { ClientModule } from './client.module';
-var cors = require('cors');
+import { ErrorHandler } from './handlers/error.handler';
 
 async function bootstrap() {
   const app = express();
@@ -10,10 +12,10 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(cors({ origin: '*' }));
 
-  
-
   const clientModule = new ClientModule();
   clientModule.start(app);
+
+  app.use(ErrorHandler.handle);
 
   app.listen(3000, () => {
     console.log(`Example app listening on port 3000`);

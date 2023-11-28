@@ -1,21 +1,17 @@
-import { prismaClient } from '../infra/client/prismaClient';
+import { PrismaClient } from '@prisma/client';
 
 export class ClientRepository {
-  create = async (data: any) => {
-    try {
-      return await prismaClient.client.create({
-        data: {
-          ...data,
-        },
-      });
-    } catch (error) {}
-  };
+  constructor(private readonly prismaClient: PrismaClient) {}
 
-  findOne = async (data: any) => {
+  createCustomer = async (data: any) => {
     try {
-      return await prismaClient.client.findFirst({
-        where: { email: data.email },
+      return await this.prismaClient.client.create({
+        data,
       });
-    } catch (error) {}
+    } catch (error: any) {
+      if (error.meta?.target && error.meta.target[0] === 'email') throw new Object({ status: 409, message: 'Este email ja esta em uso.' });
+
+      throw new Object({ status: 500, message: 'Algo deu errado com a criaçao do usuario.' });
+    }
   };
 }

@@ -7,8 +7,7 @@ export class ClientRouter {
   constructor(private readonly expressApp: Express, private readonly clientController: ClientController) {}
 
   async execute() {
-    // rotas usando o express
-    this.clientRouter.post('/create', this.clientController.handleCreateClient);
+    this.clientRouter.post('/', this.clientController.handleCreateClient);
 
     this.expressApp.use('/client', this.clientRouter);
   }

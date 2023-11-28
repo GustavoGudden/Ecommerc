@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-export class ClientRepository {
+export class CustomerRepository {
   constructor(private readonly prismaClient: PrismaClient) {}
 
   createCustomer = async (data: any) => {

@@ -1,6 +1,6 @@
 import { kafkaConsumer } from '../infra/kafka/consumer.abstract';
 import { CustomerModel } from '../model/customer.model';
-import { EmailService } from '../service/email.service';
+import { EmailService } from '../email.service';
 
 export class ConsumerCretedCustomer {
   constructor(private readonly emailService: EmailService) {}

@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { EmailService } from './service/email.service';
+import { EmailService } from './email.service';
 import { ConsumerCretedCustomer } from './consumers/create-customer.consumer';
 
 async function bootstrap() {

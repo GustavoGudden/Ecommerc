@@ -1,14 +1,14 @@
 import { Express, Router } from 'express';
-import { ClientController } from '../client.controller';
+import { CustomerController } from '../customer.controller';
 
-export class ClientRouter {
-  private clientRouter = Router();
+export class CustomerRouter {
+  private customerRouter = Router();
 
-  constructor(private readonly expressApp: Express, private readonly clientController: ClientController) {}
+  constructor(private readonly expressApp: Express, private readonly customerController: CustomerController) {}
 
   async execute() {
-    this.clientRouter.post('/', this.clientController.handleCreateClient);
+    this.customerRouter.post('/', this.customerController.handleCreateCustomer);
 
-    this.expressApp.use('/client', this.clientRouter);
+    this.expressApp.use('/client', this.customerRouter);
   }
 }

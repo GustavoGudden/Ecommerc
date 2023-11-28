@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import 'express-async-errors';
 import { prismaClient } from './infra/client/prismaClient';
-import { ClientModule } from './client.module';
+import { CustomerModule } from './customer.module';
 import { ErrorHandler } from './handlers/error.handler';
 
 async function bootstrap() {
@@ -12,7 +12,7 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(cors({ origin: '*' }));
 
-  const clientModule = new ClientModule();
+  const clientModule = new CustomerModule();
   clientModule.start(app);
 
   app.use(ErrorHandler.handle);

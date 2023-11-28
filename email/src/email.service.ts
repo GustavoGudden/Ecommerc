@@ -1,4 +1,4 @@
-import { CustomerModel } from '../model/customer.model';
+import { CustomerModel } from './model/customer.model';
 
 export class EmailService {
   async sendEmail(customer: CustomerModel) {

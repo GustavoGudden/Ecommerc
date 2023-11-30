@@ -5,7 +5,7 @@ const kafka = new Kafka({
   sasl: {
     mechanism: 'scram-sha-256',
     username: 'b3JpZW50ZWQtcmVkZmlzaC0xMDEwNSTTNltM3-V8x7dOgSQ7rYcFJyF_d_ci2a0',
-    password: 'password',
+    password: 'your password here',
   },
   ssl: true,
 });
